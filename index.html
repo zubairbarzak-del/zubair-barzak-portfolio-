@@ -8,181 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;800&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* Lock and Key Preloader Styles */
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0d100e;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s, visibility 0.5s;
-        }
-
-        #preloader.fade-out {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .lock-container {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lock-body {
-            width: 100px;
-            height: 120px;
-            background: linear-gradient(135deg, #bdff6c, #86ff29);
-            border-radius: 15px 15px 5px 5px;
-            position: relative;
-            box-shadow: 0 0 20px rgba(189, 255, 108, 0.5);
-            transform-origin: center;
-        }
-
-        .lock-keyhole {
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 30px;
-            background: #0d100e;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .lock-shackle {
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 50px;
-            border: 15px solid #bdff6c;
-            border-bottom: none;
-            border-radius: 40px 40px 0 0;
-            box-sizing: border-box;
-            transition: top 0.5s ease;
-        }
-
-        .key {
-            position: absolute;
-            width: 120px;
-            height: 20px;
-            background: linear-gradient(135deg, #bdff6c, #86ff29);
-            border-radius: 5px;
-            top: 50%;
-            left: -150px;
-            transform: translateY(-50%);
-            box-shadow: 0 0 15px rgba(189, 255, 108, 0.5);
-            animation: keyApproach 1.5s ease-out forwards;
-        }
-
-        .key-handle {
-            position: absolute;
-            right: -15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 30px;
-            height: 30px;
-            background: linear-gradient(135deg, #bdff6c, #86ff29);
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(189, 255, 108, 0.5);
-        }
-
-        .key-teeth {
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 10px;
-            background: #0d100e;
-            border-radius: 3px;
-        }
-
-        .loading-text {
-            margin-top: 30px;
-            color: #bdff6c;
-            font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            opacity: 0;
-            animation: fadeInText 0.5s ease 2s forwards;
-        }
-
-        @keyframes keyApproach {
-            0% {
-                left: -150px;
-                transform: translateY(-50%) rotate(0deg);
-            }
-            50% {
-                left: 40px;
-                transform: translateY(-50%) rotate(0deg);
-            }
-            60% {
-                transform: translateY(-50%) rotate(-15deg);
-            }
-            70% {
-                transform: translateY(-50%) rotate(15deg);
-            }
-            80% {
-                transform: translateY(-50%) rotate(0deg);
-            }
-            100% {
-                left: 40px;
-                transform: translateY(-50%) rotate(0deg);
-            }
-        }
-
-        @keyframes unlock {
-            0% {
-                transform: rotate(0deg);
-            }
-            30% {
-                transform: rotate(45deg);
-            }
-            70% {
-                transform: rotate(45deg);
-            }
-            100% {
-                transform: rotate(0deg);
-            }
-        }
-
-        @keyframes openShackle {
-            0% {
-                top: -40px;
-            }
-            100% {
-                top: -70px;
-            }
-        }
-
-        @keyframes fadeInText {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        /* Rest of your existing CSS remains the same */
-        /* Color Scheme - Neon Green Metal Theme */
+        /* Color Scheme - Sharp Neon Green Metal Theme */
         :root {
             --primary-neon: #bdff6c;
-            --dark-neon: #bdff6d;
-            --light-neon: #66ff66;
+            --dark-neon: #86ff29;
             --metal-dark: #1a1f1c;
             --metal-darker: #0d100e;
             --metal-medium: #242222;
@@ -211,7 +40,7 @@
             color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
-            /* Enhanced metal texture background with gradient */
+            /* Sharp metal texture background */
             background-image: 
                 radial-gradient(circle at 15% 50%, rgba(57, 255, 20, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 85% 30%, rgba(57, 255, 20, 0.05) 0%, transparent 20%),
@@ -246,8 +75,8 @@
         @keyframes colorChange {
             0% { background-color: var(--primary-neon); box-shadow: 0 0 10px var(--primary-neon), 0 0 20px var(--primary-neon); }
             25% { background-color: var(--accent-gold); box-shadow: 0 0 10px var(--accent-gold), 0 0 20px var(--accent-gold); }
-            50% { background-color: var(--light-neon); box-shadow: 0 0 10px var(--light-neon), 0 0 20px var(--light-neon); }
-            75% { background-color: var(--dark-neon); box-shadow: 0 0 10px var(--dark-neon), 0 0 20px var(--dark-neon); }
+            50% { background-color: var(--dark-neon); box-shadow: 0 0 10px var(--dark-neon), 0 0 20px var(--dark-neon); }
+            75% { background-color: var(--primary-neon); box-shadow: 0 0 10px var(--primary-neon), 0 0 20px var(--primary-neon); }
             100% { background-color: var(--primary-neon); box-shadow: 0 0 10px var(--primary-neon), 0 0 20px var(--primary-neon); }
         }
 
@@ -276,7 +105,7 @@
             display: inline-block;
             color: var(--white);
             position: relative;
-            /* Removed text-shadow for sharp text */
+            text-shadow: 0 0 0 transparent; /* Remove text shadow for sharpness */
         }
 
         .section-title h2::after {
@@ -288,7 +117,7 @@
             bottom: -15px;
             left: 10%;
             border-radius: 2px;
-            box-shadow: 0 0 10px var(--primary-neon);
+            box-shadow: 0 0 5px var(--primary-neon);
         }
 
         .btn {
@@ -349,7 +178,7 @@
             transition: transform 0.1s;
         }
 
-        /* Header */
+        /* Header - Smaller and More Responsive */
         header {
             position: fixed;
             top: 0;
@@ -358,7 +187,7 @@
             background-color: rgba(13, 16, 14, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: clamp(15px, 2vw, 20px) 0;
+            padding: clamp(10px, 1.5vw, 15px) 0;
             border-bottom: 1px solid rgba(57, 255, 20, 0.1);
             transition: all 0.4s ease;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -372,12 +201,12 @@
 
         .logo h1 {
             font-family: 'Cinzel', serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-size: clamp(1.5rem, 3vw, 2rem);
             font-weight: 800;
             color: var(--primary-neon);
             position: relative;
             letter-spacing: 1px;
-            /* Removed text-shadow for sharp text */
+            text-shadow: 0 0 0 transparent; /* Remove text shadow for sharpness */
         }
 
         .logo h1::after {
@@ -405,7 +234,7 @@
         }
 
         .nav-menu li {
-            margin-left: clamp(20px, 3vw, 40px);
+            margin-left: clamp(15px, 2.5vw, 30px);
             position: relative;
         }
 
@@ -415,7 +244,8 @@
             position: relative;
             padding: 5px 0;
             transition: color 0.3s ease;
-            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            font-size: clamp(0.8rem, 1.3vw, 1rem);
+            text-decoration: none;
         }
 
         .nav-menu a::after {
@@ -438,15 +268,16 @@
             width: 100%;
         }
 
-        /* Mobile Menu Toggle */
+        /* Mobile Menu Toggle - Improved Design */
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            width: 30px;
-            height: 25px;
+            width: 25px;
+            height: 20px;
             justify-content: space-between;
             z-index: 1001;
+            position: relative;
         }
 
         .menu-toggle span {
@@ -454,6 +285,7 @@
             height: 3px;
             background-color: var(--white);
             transition: all 0.3s ease;
+            border-radius: 2px;
         }
 
         .menu-toggle.active span:nth-child(1) {
@@ -475,17 +307,17 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: clamp(120px, 18vw, 180px);
+            padding-top: clamp(100px, 15vw, 150px);
             position: relative;
             overflow: hidden;
-            /* Added non-transparent blur effect */
+            /* Sharp background without blur */
             background: 
                 radial-gradient(ellipse at 20% 50%, rgba(57, 255, 20, 0.1) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 20%, rgba(179, 255, 0, 0.05) 0%, transparent 50%),
                 linear-gradient(135deg, var(--metal-darker) 0%, var(--metal-dark) 100%);
         }
 
-        /* Enhanced live visual background */
+        /* Enhanced live visual background with 3D elements */
         .live-background {
             position: absolute;
             top: 0;
@@ -525,17 +357,6 @@
                 transform: translate(0, 0) rotate(360deg);
                 opacity: 0.3;
             }
-        }
-
-        .hero-blur {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            backdrop-filter: blur(5px);
-            z-index: -1;
-            background: rgba(13, 16, 14, 0.7);
         }
 
         /* Background texture lines */
@@ -654,7 +475,7 @@
             position: relative;
             display: inline-block;
             letter-spacing: 1px;
-            /* Removed text-shadow for sharp text */
+            text-shadow: 0 0 0 transparent; /* Remove text shadow for sharpness */
         }
 
         .hero-text h1::after {
@@ -682,7 +503,7 @@
             font-size: clamp(1.5rem, 3vw, 2.2rem);
             margin-bottom: clamp(15px, 2vw, 25px);
             min-height: clamp(50px, 8vw, 70px);
-            color: var(--light-neon);
+            color: var(--dark-neon);
             font-weight: 600;
             animation: fadeInUp 1s ease 0.4s both;
             font-family: 'Playfair Display', serif;
@@ -1863,6 +1684,81 @@
             font-size: clamp(0.8rem, 1.5vw, 1rem);
         }
 
+        /* 3D Background Elements */
+        .three-d-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .three-d-element {
+            position: absolute;
+            background: linear-gradient(135deg, var(--primary-neon), var(--dark-neon));
+            opacity: 0.05;
+            animation: float3d 20s infinite linear;
+            transform-style: preserve-3d;
+            border-radius: 5px;
+        }
+
+        .three-d-element:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+            transform: rotateX(45deg) rotateY(45deg);
+        }
+
+        .three-d-element:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 70%;
+            left: 80%;
+            animation-delay: -5s;
+            transform: rotateX(60deg) rotateY(30deg);
+        }
+
+        .three-d-element:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            top: 40%;
+            left: 90%;
+            animation-delay: -10s;
+            transform: rotateX(30deg) rotateY(60deg);
+        }
+
+        .three-d-element:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            top: 80%;
+            left: 10%;
+            animation-delay: -15s;
+            transform: rotateX(75deg) rotateY(15deg);
+        }
+
+        @keyframes float3d {
+            0% { 
+                transform: translate3d(0, 0, 0) rotateX(45deg) rotateY(45deg);
+            }
+            25% { 
+                transform: translate3d(100px, -50px, 50px) rotateX(90deg) rotateY(90deg);
+            }
+            50% { 
+                transform: translate3d(200px, 0, 100px) rotateX(135deg) rotateY(135deg);
+            }
+            75% { 
+                transform: translate3d(100px, 50px, 50px) rotateX(180deg) rotateY(180deg);
+            }
+            100% { 
+                transform: translate3d(0, 0, 0) rotateX(225deg) rotateY(225deg);
+            }
+        }
+
         /* Responsive adjustments */
         @media (max-width: 1200px) {
             .stats-container {
@@ -1885,16 +1781,17 @@
             
             .nav-menu {
                 position: fixed;
-                top: 70px;
+                top: 60px;
                 right: -100%;
                 width: 70%;
-                height: calc(100vh - 70px);
+                height: calc(100vh - 60px);
                 background: rgba(13, 16, 14, 0.98);
                 flex-direction: column;
                 align-items: center;
                 padding-top: 50px;
                 transition: right 0.5s ease;
                 backdrop-filter: blur(10px);
+                border-left: 1px solid rgba(57, 255, 20, 0.2);
             }
             
             .nav-menu.active {
@@ -1903,7 +1800,24 @@
             
             .nav-menu li {
                 margin: 15px 0;
+                opacity: 0;
+                transform: translateX(20px);
+                transition: all 0.3s ease;
             }
+            
+            .nav-menu.active li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            
+            .nav-menu li:nth-child(1) { transition-delay: 0.1s; }
+            .nav-menu li:nth-child(2) { transition-delay: 0.2s; }
+            .nav-menu li:nth-child(3) { transition-delay: 0.3s; }
+            .nav-menu li:nth-child(4) { transition-delay: 0.4s; }
+            .nav-menu li:nth-child(5) { transition-delay: 0.5s; }
+            .nav-menu li:nth-child(6) { transition-delay: 0.6s; }
+            .nav-menu li:nth-child(7) { transition-delay: 0.7s; }
+            .nav-menu li:nth-child(8) { transition-delay: 0.8s; }
             
             .hero-content, .about-content {
                 grid-template-columns: 1fr;
@@ -1999,27 +1913,24 @@
             .hero-intro {
                 font-size: 1.8rem;
             }
+            
+            .nav-menu {
+                width: 85%;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="lock-container">
-            <div class="lock-body">
-                <div class="lock-keyhole"></div>
-                <div class="lock-shackle"></div>
-            </div>
-            <div class="key">
-                <div class="key-handle"></div>
-                <div class="key-teeth"></div>
-            </div>
-            <div class="loading-text">Unlocking Portfolio</div>
-        </div>
-    </div>
-
     <!-- Custom Cursor -->
     <div class="cursor"></div>
+
+    <!-- 3D Background Elements -->
+    <div class="three-d-elements">
+        <div class="three-d-element"></div>
+        <div class="three-d-element"></div>
+        <div class="three-d-element"></div>
+        <div class="three-d-element"></div>
+    </div>
 
     <!-- Header -->
     <header>
@@ -2048,7 +1959,6 @@
     <!-- Hero Section -->
     <section id="home">
         <div class="live-background" id="live-background"></div>
-        <div class="hero-blur"></div>
         <div class="texture-lines">
             <div class="texture-line"></div>
             <div class="texture-line"></div>
@@ -2424,38 +2334,6 @@
     </footer>
 
     <script>
-        // Preloader
-        window.addEventListener('load', function() {
-            // Animate the lock and key
-            const key = document.querySelector('.key');
-            const lockShackle = document.querySelector('.lock-shackle');
-            const lockKeyhole = document.querySelector('.lock-keyhole');
-            
-            // Key enters the lock
-            setTimeout(() => {
-                // Key turns to unlock
-                key.style.animation = 'unlock 0.5s ease 0.5s forwards';
-                
-                // Lock opens
-                setTimeout(() => {
-                    lockShackle.style.animation = 'openShackle 0.5s ease forwards';
-                    lockKeyhole.style.background = '#bdff6c'; // Change keyhole color when unlocked
-                }, 1000);
-            }, 1500);
-            
-            // Fade out after animation completes
-            setTimeout(function() {
-                const preloader = document.getElementById('preloader');
-                preloader.classList.add('fade-out');
-                
-                setTimeout(function() {
-                    preloader.style.display = 'none';
-                    // Initialize portfolio animations after preloader is hidden
-                    initPortfolio();
-                }, 500);
-            }, 2500); // Total animation time: 2.5 seconds
-        });
-
         // Portfolio Initialization Function
         function initPortfolio() {
             // Custom Cursor
@@ -2532,20 +2410,20 @@
                 const header = document.querySelector('header');
                 if (window.scrollY > 100) {
                     header.style.backgroundColor = 'rgba(13, 16, 14, 0.98)';
-                    header.style.padding = '15px 0';
+                    header.style.padding = '10px 0';
                 } else {
                     header.style.backgroundColor = 'rgba(13, 16, 14, 0.95)';
-                    header.style.padding = '20px 0';
+                    header.style.padding = '15px 0';
                 }
             });
 
             // Live Background Animation
             function createLiveBackground() {
                 const liveBackground = document.getElementById('live-background');
-                for (let i = 0; i < 20; i++) {
+                for (let i = 0; i < 15; i++) { // Reduced number for performance
                     const particle = document.createElement('div');
                     particle.classList.add('live-particle');
-                    particle.style.width = `${Math.random() * 60 + 20}px`;
+                    particle.style.width = `${Math.random() * 40 + 20}px`;
                     particle.style.height = particle.style.width;
                     particle.style.left = `${Math.random() * 100}%`;
                     particle.style.top = `${Math.random() * 100}%`;
@@ -2611,6 +2489,9 @@
 
             window.addEventListener('scroll', checkVisibility);
         }
+
+        // Initialize portfolio when page loads
+        document.addEventListener('DOMContentLoaded', initPortfolio);
     </script>
 </body>
 </html>
